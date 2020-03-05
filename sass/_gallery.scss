@@ -1,0 +1,80 @@
+#gallery {
+    .title {
+        max-width: 1200px;
+        width: 90%;
+
+        margin: auto;
+        padding: 64px 0 0;
+
+        font-size: 64px;
+        text-align: center;
+    }
+    article {
+        max-width: 1384px;
+        @media (max-width: 1384px) {
+            max-width: 912px;
+        }
+        @media (max-width: 912px) {
+            max-width: 440px;
+        }
+        width: 100%;
+        margin: auto;
+
+        padding: 64px 0;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 440px));
+        grid-gap: 32px;
+
+        a {
+            position: relative;
+
+            max-width: 440px;
+            height: fit-content;
+            img {
+                width: 100%;
+                height: fit-content;
+            }
+            div {
+                position: absolute;
+                bottom: 5px;
+                left: 0;
+
+                width: 100%;
+                height: 0px;
+
+                overflow: hidden;
+
+                @include df(center, center);
+
+                text-transform: uppercase;
+
+                transition: all 0.2s ease;
+                &:hover {
+                    height: 60px;
+                    overflow: visible;
+                }
+            }
+            &:hover div {
+                height: 60px;
+                overflow: visible;
+            }
+            &:nth-child(4n + 1) > div {
+                background-color: rgba(89, 59, 52, 0.9);
+                color: $white;
+            }
+            &:nth-child(4n + 2) > div {
+                background-color: rgba(255, 255, 255, 0.9);
+                color: #593b34;
+            }
+            &:nth-child(4n + 3) > div {
+                background-color: rgba(191, 150, 99, 0.9);
+                color: $white;
+            }
+            &:nth-child(4n) > div {
+                background-color: rgba(255, 255, 255, 0.9);
+                color: #bf9663;
+            }
+        }
+    }
+}

@@ -1,0 +1,260 @@
+#main-home {
+    .slider {
+        width: 100%;
+        height: 980px - $header-height;
+
+        @include df(center, center);
+
+        font-size: 64px;
+        font-weight: bold;
+
+        background-color: #e0e0e0;
+    }
+    nav {
+        max-width: 1200px;
+        height: fit-content;
+        margin: auto;
+
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-areas: "news cal gal";
+
+        margin: 128px auto;
+
+        section {
+            width: 100%;
+            height: fit-content;
+            @include df(center, center);
+            flex-direction: column;
+
+            margin: 32px auto;
+
+            font-size: 24px;
+
+            transition: all 0.4s ease;
+            &.news {
+                color: #bf9663;
+                a {
+                    color: #bf9663;
+                }
+                grid-area: news;
+            }
+            &.cal {
+                color: #593b34;
+                a {
+                    color: #593b34;
+                }
+                grid-area: cal;
+            }
+            &.gal {
+                color: #5b8c5a;
+                a {
+                    color: #5b8c5a;
+                }
+                grid-area: gal;
+            }
+
+            & > .rect {
+                width: 250px;
+                height: 250px;
+
+                border: 20px $grey solid;
+                border-radius: 250px;
+
+                background-color: $white;
+                @include df(center, center);
+                flex-direction: column;
+
+                font-size: 28px;
+
+                > .rect--b {
+                    position: absolute;
+
+                    width: 230px;
+                    height: 230px;
+                    border: 20px transparent solid;
+                    border-radius: 250px;
+
+                    transition: all 0.5s ease;
+                    &:hover {
+                        width: 250px;
+                        height: 250px;
+                    }
+                }
+
+                & > div:last-child {
+                    margin-top: -10px;
+                }
+            }
+
+            &.news .rect--b:hover {
+                border-color: #bf9663;
+            }
+            &.cal .rect--b:hover {
+                border-color: #593b34;
+            }
+            &.gal .rect--b:hover {
+                border-color: #5b8c5a;
+            }
+        }
+    }
+
+    .history {
+        height: fit-content;
+        margin: 64px auto;
+        padding: 128px 64px;
+        background-color: #5b8c5a;
+        color: $white;
+        > div {
+            max-width: 1200px;
+            height: fit-content;
+
+            margin: auto;
+
+            @include df(space-around, center);
+            .mark {
+                width: fit-content;
+            }
+            .desc {
+                width: 550px;
+                a {
+                    color: $brown;
+                }
+            }
+        }
+    }
+
+    #instructors {
+        > div:first-child {
+            margin: 32px auto;
+
+            font-size: 38px;
+            text-align: center;
+        }
+        > div:last-child {
+            max-width: 1370px;
+            margin: 64px auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 450px);
+            grid-gap: 32px;
+
+            section {
+                max-width: 400px;
+                height: 500px;
+
+                background-color: #bad9c8;
+                .photo {
+                    width: 100%;
+                    height: 400px;
+                    background-color: #e3e3e3;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                    }
+                }
+                .desc {
+                    @include df(center, center);
+                    flex-direction: column;
+                    div {
+                        margin: 0 px;
+                        font-size: 24px;
+                        @include df(space-around, center);
+                        &.social {
+                            margin-top: 8px;
+                            a {
+                                width: fit-content;
+                                height: 55px;
+                            }
+                            img,
+                            i {
+                                width: 40px;
+                                height: 40px;
+                                margin: 4px 32px;
+                                &::before {
+                                    font-size: 2.7rem;
+                                }
+                                &.gmail {
+                                    width: 50px;
+                                    &::before {
+                                        font-size: 3rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .map {
+        width: 100%;
+        height: 350px;
+
+        iframe {
+            width: 100%;
+            height: 350px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .slider {
+            height: 820px - $header-height;
+        }
+        nav {
+            grid-template-areas:
+                ". news news gal gal ."
+                ". . cal cal . .";
+            section {
+                &.news {
+                    grid-area: news;
+                }
+                &.cal {
+                    grid-area: cal;
+                }
+                &.gal {
+                    grid-area: gal;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 600px) {
+        #main-home {
+            .slider {
+                height: 620px - $header-height;
+            }
+            nav {
+                grid-template-areas:
+                    "news"
+                    "gal"
+                    "cal";
+                section {
+                    &.news {
+                        grid-area: news;
+                    }
+                    &.cal {
+                        grid-area: cal;
+                    }
+                    &.gal {
+                        grid-area: gal;
+                    }
+                }
+            }
+            .history {
+                padding: 128px 32px;
+                > div {
+                    position: relative;
+                    .mark {
+                        position: absolute;
+                        top: -24px;
+                        opacity: 0.3;
+                        transform: scale(2);
+                    }
+                }
+            }
+        }
+    }
+}

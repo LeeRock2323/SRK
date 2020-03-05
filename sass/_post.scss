@@ -1,0 +1,86 @@
+main#post {
+    max-width: 900px;
+    width: 90%;
+    margin: auto;
+    padding: 32px 0 64px;
+    .post {
+        &__big {
+            .data {
+                padding: 32px 0px;
+
+                font-size: 24px;
+
+                @include df(space-between, center);
+                div {
+                    width: fit-content;
+                    a {
+                        width: 100%;
+                        height: 100%;
+                        color: black;
+                        @include df(space-between, center);
+                        img {
+                            height: 36px;
+                            padding-right: 4px;
+                        }
+                    }
+                }
+            }
+            padding-top: 32px;
+            section:nth-child(2) {
+                max-width: 900px;
+                height: fit-content;
+                width: 100%;
+
+                background-color: #e3e3e3;
+
+                @include df(center, center);
+                img,
+                video {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            section:last-child {
+                height: fit-content;
+
+                padding: 32px 0;
+
+                @include df(center, flex-start);
+                flex-direction: column;
+                div {
+                    width: 100%;
+                }
+                .title {
+                    font-size: 24px;
+                }
+                .desc {
+                    flex: 1;
+
+                    padding-top: 16px;
+                    width: 50%;
+                }
+            }
+            @media (max-width: 1000px) {
+                section:last-child {
+                    .desc {
+                        width: 70%;
+                    }
+                }
+            }
+            @media (max-width: 800px) {
+                section:last-child {
+                    .desc {
+                        width: 80%;
+                    }
+                }
+            }
+            @media (max-width: 700px) {
+                section:last-child {
+                    .desc {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

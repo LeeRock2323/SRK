@@ -1,0 +1,60 @@
+/* GLOBAL STYLE CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: fit-content;
+}
+
+body {
+    font-family: "Oswald", sans-serif;
+    background-color: $white;
+    color: black;
+    margin-top: $header-height;
+}
+
+footer {
+    height: 40px;
+    width: 100%;
+
+    @include df(center, center);
+
+    background-color: $brown;
+    color: $white;
+}
+
+a {
+    text-decoration: none;
+    color: $white;
+}
+
+.hidden {
+    display: none;
+}
+
+/*Szerokość */
+::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    width: 0px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+}
+
+/* Hanlde on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #888;
+}
+
+/* GLOBAL STYLE CSS */

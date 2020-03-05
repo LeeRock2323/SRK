@@ -1,0 +1,55 @@
+/* HEADER CSS */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    width: 100%;
+    height: $header-height;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 18px;
+    color: $brown;
+    a {
+        color: $brown;
+    }
+
+    background-color: $mint;
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+
+    > .logo {
+        width: 100px;
+        height: fit-content;
+
+        grid-area: logo;
+
+        margin: auto 10px;
+    }
+
+    .logo > a,
+    a > img {
+        width: 100%;
+        height: auto;
+    } /*logo i link w wymiarach 100px, fit-content */
+
+    > nav {
+        width: 500px;
+
+        grid-area: nav;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        align-items: center;
+
+        > div {
+            text-align: center;
+        }
+    }
+}
+
+@import "header--rwd";
+
+/* HEADER CSS */
