@@ -9,48 +9,7 @@
 @import "news";
 @import "post";
 /* BUFFOR CSS */
-
-@media (max-width: 1375px) {
-    body#body-news aside#cal {
-        &.expand {
-            top: $header-height + 8px;
-            transform: translateY(0);
-            right: 20px;
-            z-index: 1000;
-
-            width: fit-content;
-
-            padding: 0;
-
-            .burger.hidden {
-                width: fit-content;
-                height: 40px;
-
-                background-color: $white;
-                @include df(space-between, center);
-                flex-direction: column;
-
-                padding: 0;
-
-                .burgerT {
-                    width: 50px;
-                    height: 7px;
-                    background-color: rgba(68, 140, 48, 0.5);
-                }
-            }
-            .title,
-            .days {
-                display: none;
-            }
-        }
-        right: 50%;
-        transform: translate(+50%, -50%);
-        background-color: #ededed;
-        .days {
-            .day {
-                background-color: #bad9c8;
-            }
-        }
-    }
+header {
 }
+
 /* BUFFOR CSS */

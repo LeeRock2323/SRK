@@ -4,7 +4,7 @@ body#body-news {
         position: fixed;
         top: 120px;
         left: 0;
-        z-index: 999;
+        z-index: 99;
 
         width: 100%;
 
@@ -144,6 +144,49 @@ body#body-news {
 
                 @include df(center, center);
                 background-color: #ededed;
+            }
+        }
+    }
+}
+@media (max-width: 1375px) {
+    body#body-news aside#cal {
+        &.expand {
+            top: $header-height + 13px;
+            transform: translateY(+50%);
+            right: 20px;
+            z-index: 99;
+
+            width: fit-content;
+
+            padding: 0;
+
+            .burger.hidden {
+                width: fit-content;
+                height: 30px;
+
+                background-color: $white;
+                @include df(space-between, center);
+                flex-direction: column;
+
+                padding: 0;
+
+                .burgerT {
+                    width: 40px;
+                    height: 5px;
+                    background-color: rgba(68, 140, 48, 0.5);
+                }
+            }
+            .title,
+            .days {
+                display: none;
+            }
+        }
+        right: 50%;
+        transform: translate(+50%, -50%);
+        background-color: #ededed;
+        .days {
+            .day {
+                background-color: #bad9c8;
             }
         }
     }
