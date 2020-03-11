@@ -8,6 +8,7 @@
 html {
     width: 100%;
     height: fit-content;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -25,6 +26,36 @@ footer {
 
     background-color: $brown;
     color: $white;
+    .toTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+
+        width: 60px;
+        height: 60px;
+
+        background-color: transparent;
+        border: 10px solid $brown;
+        border-radius: 30px;
+
+        span {
+            position: absolute;
+            top: 20%;
+
+            width: 10px;
+            height: 25px;
+
+            background-color: $brown;
+            &:first-child {
+                left: 53%;
+                transform: rotate(-45deg);
+            }
+            &:last-child {
+                left: 22%;
+                transform: rotate(45deg);
+            }
+        }
+    }
 }
 
 a {

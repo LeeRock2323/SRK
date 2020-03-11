@@ -1,0 +1,59 @@
+#kontakt {
+    max-width: 900px;
+    width: 100%;
+
+    margin: auto;
+    form {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 300px);
+        grid-template-areas:
+            "name surname city"
+            "phone msg info"
+            "email msg info"
+            ". . send";
+        grid-gap: 32px;
+
+        > div {
+            width: 100%;
+            height: 100%;
+
+            padding: 10px;
+            border: 3px solid #7c9e7b;
+            border-radius: 14px;
+
+            input,
+            select {
+                background-color: transparent;
+                border: none;
+                outline: none;
+            }
+        }
+        #name {
+            grid-area: name;
+        }
+        #surname {
+            grid-area: surname;
+        }
+        #phone {
+            grid-area: phone;
+        }
+        #email {
+            grid-area: email;
+        }
+        #city {
+            grid-area: city;
+        }
+        #city {
+            grid-area: city;
+        }
+        #msg {
+            grid-area: msg;
+        }
+        #info {
+            grid-area: info;
+        }
+        #send {
+            grid-area: send;
+        }
+    }
+}

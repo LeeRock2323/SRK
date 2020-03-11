@@ -14,6 +14,7 @@ html {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -37,6 +38,37 @@ footer {
           align-items: center;
   background-color: #593b34;
   color: #ededed;
+}
+
+footer .toTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: 10px solid #593b34;
+  border-radius: 30px;
+}
+
+footer .toTop span {
+  position: absolute;
+  top: 20%;
+  width: 10px;
+  height: 25px;
+  background-color: #593b34;
+}
+
+footer .toTop span:first-child {
+  left: 53%;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+footer .toTop span:last-child {
+  left: 22%;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 a {
@@ -373,59 +405,23 @@ header > nav > div {
   color: #593b34;
 }
 
-#main-home #instructors > div:first-child {
+#main-home #instructor > div:first-child {
   margin: 32px auto;
   font-size: 38px;
   text-align: center;
 }
 
-#main-home #instructors > div:last-child {
+#main-home #instructor > div:last-child {
   max-width: 1370px;
+  width: 100%;
   margin: 64px auto;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (450px)[3];
-      grid-template-columns: repeat(3, 450px);
-  grid-gap: 32px;
 }
 
-#main-home #instructors > div:last-child section {
-  max-width: 400px;
-  height: 500px;
-  background-color: #bad9c8;
-}
-
-#main-home #instructors > div:last-child section .photo {
+#main-home #instructor > div:last-child section {
+  max-width: 1200px;
   width: 100%;
   height: 400px;
-  background-color: #e3e3e3;
-}
-
-#main-home #instructors > div:last-child section .photo img {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-#main-home #instructors > div:last-child section .desc {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-#main-home #instructors > div:last-child section .desc div {
-  margin: 0 px;
-  font-size: 24px;
+  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -436,40 +432,26 @@ header > nav > div {
           align-items: center;
 }
 
-#main-home #instructors > div:last-child section .desc div.social {
-  margin-top: 8px;
+#main-home #instructor > div:last-child section .photo {
+  width: 300px;
+  height: auto;
+  background-color: #e3e3e3;
 }
 
-#main-home #instructors > div:last-child section .desc div.social a {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: 55px;
+#main-home #instructor > div:last-child section .photo img {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
-#main-home #instructors > div:last-child section .desc div.social img,
-#main-home #instructors > div:last-child section .desc div.social i {
-  width: 40px;
-  height: 40px;
-  margin: 4px 32px;
-}
-
-#main-home #instructors > div:last-child section .desc div.social img::before,
-#main-home #instructors > div:last-child section .desc div.social i::before {
-  font-size: 2.7rem;
-}
-
-#main-home #instructors > div:last-child section .desc div.social img.gmail,
-#main-home #instructors > div:last-child section .desc div.social i.gmail {
-  width: 50px;
-}
-
-#main-home #instructors > div:last-child section .desc div.social img.gmail::before,
-#main-home #instructors > div:last-child section .desc div.social i.gmail::before {
-  font-size: 3rem;
+#main-home #instructor > div:last-child section .desc {
+  max-width: 500px;
+  width: 100%;
+  text-align: left;
 }
 
 #main-home .map {
+  position: relative;
   width: 100%;
   height: 350px;
 }
@@ -477,6 +459,95 @@ header > nav > div {
 #main-home .map iframe {
   width: 100%;
   height: 350px;
+}
+
+#main-home .map > div {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#main-home .map > div > div {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 15px 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+          box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
+  text-align: center;
+}
+
+#main-home .map > div > div:hover {
+  background-color: #5b8c5af1;
+  color: #ededed;
+}
+
+#main-home > article#kontakt {
+  width: 100%;
+  height: 132px;
+  background-color: #593b34;
+  opacity: 0.95;
+  color: #ededed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#main-home > article#kontakt section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+#main-home > article#kontakt section > div,
+#main-home > article#kontakt section > img {
+  margin: 0px 10px;
+}
+
+@media (max-width: 800px) {
+  #main-home > article#kontakt {
+    height: 200px;
+  }
+  #main-home > article#kontakt section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #main-home > article#kontakt section > div,
+  #main-home > article#kontakt section > img {
+    margin: 5px 0px;
+  }
+}
+
+@media (max-width: 800px) {
+  #main-home > article#kontakt {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 600px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -507,34 +578,34 @@ header > nav > div {
 }
 
 @media (max-width: 600px) {
-  #main-home #main-home .slider {
+  #main-home .slider {
     height: 500px;
   }
-  #main-home #main-home nav {
+  #main-home nav {
         grid-template-areas: "news" "gal" "cal";
   }
-  #main-home #main-home nav section.news {
+  #main-home nav section.news {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
     grid-area: news;
   }
-  #main-home #main-home nav section.cal {
+  #main-home nav section.cal {
     -ms-grid-row: 3;
     -ms-grid-column: 1;
     grid-area: cal;
   }
-  #main-home #main-home nav section.gal {
+  #main-home nav section.gal {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
     grid-area: gal;
   }
-  #main-home #main-home .history {
+  #main-home .history {
     padding: 128px 32px;
   }
-  #main-home #main-home .history > div {
+  #main-home .history > div {
     position: relative;
   }
-  #main-home #main-home .history > div .mark {
+  #main-home .history > div .mark {
     position: absolute;
     top: -24px;
     opacity: 0.3;
@@ -762,24 +833,26 @@ header > nav > div {
   }
 }
 
-#gallery article a {
+#gallery article > a,
+#gallery article > div {
   position: relative;
   max-width: 440px;
+  max-height: 292.66px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
 
-#gallery article a img {
+#gallery article > a img,
+#gallery article > div img {
   width: 100%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 100%;
 }
 
-#gallery article a div {
+#gallery article > a div,
+#gallery article > div div {
   position: absolute;
-  bottom: 5px;
+  bottom: 0px;
   left: 0;
   width: 100%;
   height: 0px;
@@ -798,45 +871,69 @@ header > nav > div {
   transition: all 0.2s ease;
 }
 
-#gallery article a div:hover {
+@media (max-width: 400px) {
+  #gallery article > a div,
+  #gallery article > div div {
+    font-size: 14px;
+  }
+}
+
+#gallery article > a div:hover,
+#gallery article > div div:hover {
   height: 60px;
   overflow: visible;
 }
 
-#gallery article a:hover div {
+#gallery article > a:hover div,
+#gallery article > div:hover div {
   height: 60px;
   overflow: visible;
 }
 
-#gallery article a:nth-child(4n + 1) > div {
+#gallery article > a:nth-child(4n + 1) > div,
+#gallery article > div:nth-child(4n + 1) > div {
   background-color: rgba(89, 59, 52, 0.9);
   color: #ededed;
 }
 
-#gallery article a:nth-child(4n + 2) > div {
+#gallery article > a:nth-child(4n + 2) > div,
+#gallery article > div:nth-child(4n + 2) > div {
   background-color: rgba(255, 255, 255, 0.9);
   color: #593b34;
 }
 
-#gallery article a:nth-child(4n + 3) > div {
+#gallery article > a:nth-child(4n + 3) > div,
+#gallery article > div:nth-child(4n + 3) > div {
   background-color: rgba(191, 150, 99, 0.9);
   color: #ededed;
 }
 
-#gallery article a:nth-child(4n) > div {
+#gallery article > a:nth-child(4n) > div,
+#gallery article > div:nth-child(4n) > div {
   background-color: rgba(255, 255, 255, 0.9);
   color: #bf9663;
 }
 
+#gallery .mini > div {
+  height: auto;
+}
+
+#gallery .mini img {
+  max-width: 440px;
+  width: 100%;
+  max-height: 292.66px;
+  height: auto;
+}
+
 body#body-news {
-  margin-top: 191px;
+  margin-top: 120px;
+}
+
+body#body-news header {
+  position: absolute;
 }
 
 body#body-news .article__header {
-  position: fixed;
-  top: 120px;
-  left: 0;
-  z-index: 99;
   width: 100%;
   padding: 16px 0px 4px 16px;
   border-bottom: 3px solid rgba(68, 140, 48, 0.5);
@@ -852,7 +949,7 @@ body#body-news main {
   padding: 32px 0;
 }
 
-body#body-news main .post__big {
+body#body-news main .post {
   padding-top: 32px;
 }
 
@@ -950,10 +1047,6 @@ body#body-news main .post__big section:last-child .data div a img {
   padding-left: 4px;
 }
 
-body#body-news main .post__small {
-  padding-top: 32px;
-}
-
 body#body-news main .post__small section {
   max-width: 500px;
   height: -webkit-fit-content;
@@ -1009,17 +1102,23 @@ body#body-news main .post__small section .go a img {
 }
 
 body#body-news aside#cal {
+  cursor: pointer;
   position: fixed;
   top: 50%;
   right: 20px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  -webkit-transform: translateY(-25%);
+          transform: translateY(-25%);
   width: 360px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   padding: 16px;
   background-color: #bad9c8;
+}
+
+body#body-news aside#cal a#month,
+body#body-news aside#cal a#year {
+  color: #593b34;
 }
 
 body#body-news aside#cal .title {
@@ -1036,7 +1135,7 @@ body#body-news aside#cal .title {
   color: #4b322d;
 }
 
-body#body-news aside#cal .days {
+body#body-news aside#cal #days {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[7];
@@ -1045,7 +1144,7 @@ body#body-news aside#cal .days {
   padding-top: 16px;
 }
 
-body#body-news aside#cal .days .day {
+body#body-news aside#cal #days .day {
   width: 40px;
   height: 40px;
   display: -webkit-box;
@@ -1058,19 +1157,29 @@ body#body-news aside#cal .days .day {
       -ms-flex-align: center;
           align-items: center;
   background-color: #ededed;
+  color: #593b34;
+}
+
+body#body-news aside#cal #days .day.today, body#body-news aside#cal #days .day:hover {
+  background-color: rgba(68, 140, 48, 0.5);
+  color: #ededed;
+}
+
+body#body-news aside#cal #days .day.disable:hover {
+  background-color: #ededed;
 }
 
 @media (max-width: 1375px) {
   body#body-news aside#cal {
     right: 50%;
-    -webkit-transform: translate(50%, -50%);
-            transform: translate(50%, -50%);
+    -webkit-transform: translate(50%, -20%);
+            transform: translate(50%, -20%);
     background-color: #ededed;
   }
   body#body-news aside#cal.expand {
-    top: 133px;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
+    top: 120px;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
     right: 20px;
     z-index: 99;
     width: -webkit-fit-content;
@@ -1105,10 +1214,10 @@ body#body-news aside#cal .days .day {
     background-color: rgba(68, 140, 48, 0.5);
   }
   body#body-news aside#cal.expand .title,
-  body#body-news aside#cal.expand .days {
+  body#body-news aside#cal.expand #days {
     display: none;
   }
-  body#body-news aside#cal .days .day {
+  body#body-news aside#cal #days .day {
     background-color: #bad9c8;
   }
 }

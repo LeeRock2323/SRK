@@ -1,11 +1,11 @@
 body#body-news {
-    margin-top: $header-height + 71px;
-    .article__header {
-        position: fixed;
-        top: 120px;
-        left: 0;
-        z-index: 99;
+    margin-top: $header-height;
 
+    header {
+        position: absolute;
+    }
+
+    .article__header {
         width: 100%;
 
         padding: 16px 0px 4px 16px;
@@ -23,8 +23,8 @@ body#body-news {
         padding: 32px 0;
 
         .post {
+            padding-top: 32px;
             &__big {
-                padding-top: 32px;
                 section:first-child {
                     height: fit-content;
                     width: 100%;
@@ -76,8 +76,6 @@ body#body-news {
                 }
             }
             &__small {
-                padding-top: 32px;
-
                 section {
                     max-width: 500px;
                     height: fit-content;
@@ -114,10 +112,12 @@ body#body-news {
         }
     }
     aside#cal {
+        cursor: pointer;
+
         position: fixed;
         top: 50%;
         right: 20px;
-        transform: translateY(-50%);
+        transform: translateY(-25%);
 
         width: 360px;
         height: fit-content;
@@ -125,13 +125,17 @@ body#body-news {
         padding: 16px;
 
         background-color: #bad9c8;
+        a#month,
+        a#year {
+            color: $brown;
+        }
         .title {
             @include df(space-between, center);
 
             font-size: 24px;
             color: #4b322d;
         }
-        .days {
+        #days {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             grid-gap: 8px;
@@ -144,6 +148,16 @@ body#body-news {
 
                 @include df(center, center);
                 background-color: #ededed;
+
+                color: $brown;
+                &.today,
+                &:hover {
+                    background-color: rgba(68, 140, 48, 0.5);
+                    color: $white;
+                }
+                &.disable:hover {
+                    background-color: #ededed;
+                }
             }
         }
     }
@@ -151,7 +165,7 @@ body#body-news {
 @media (max-width: 1375px) {
     body#body-news aside#cal {
         &.expand {
-            top: $header-height + 13px;
+            top: $header-height;
             transform: translateY(+50%);
             right: 20px;
             z-index: 99;
@@ -177,14 +191,14 @@ body#body-news {
                 }
             }
             .title,
-            .days {
+            #days {
                 display: none;
             }
         }
         right: 50%;
-        transform: translate(+50%, -50%);
+        transform: translate(+50%, -20%);
         background-color: #ededed;
-        .days {
+        #days {
             .day {
                 background-color: #bad9c8;
             }

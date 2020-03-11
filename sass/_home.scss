@@ -124,7 +124,7 @@
         }
     }
 
-    #instructors {
+    #instructor {
         > div:first-child {
             margin: 32px auto;
 
@@ -133,20 +133,22 @@
         }
         > div:last-child {
             max-width: 1370px;
+            width: 100%;
             margin: 64px auto;
 
-            display: grid;
-            grid-template-columns: repeat(3, 450px);
-            grid-gap: 32px;
-
             section {
-                max-width: 400px;
-                height: 500px;
+                max-width: 1200px;
+                width: 100%;
 
-                background-color: #bad9c8;
+                height: 400px;
+
+                margin: auto;
+
+                @include df(space-around, center);
+
                 .photo {
-                    width: 100%;
-                    height: 400px;
+                    width: 300px;
+                    height: auto;
                     background-color: #e3e3e3;
                     img {
                         width: 100%;
@@ -155,47 +157,79 @@
                     }
                 }
                 .desc {
-                    @include df(center, center);
-                    flex-direction: column;
-                    div {
-                        margin: 0 px;
-                        font-size: 24px;
-                        @include df(space-around, center);
-                        &.social {
-                            margin-top: 8px;
-                            a {
-                                width: fit-content;
-                                height: 55px;
-                            }
-                            img,
-                            i {
-                                width: 40px;
-                                height: 40px;
-                                margin: 4px 32px;
-                                &::before {
-                                    font-size: 2.7rem;
-                                }
-                                &.gmail {
-                                    width: 50px;
-                                    &::before {
-                                        font-size: 3rem;
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    max-width: 500px;
+                    width: 100%;
+                    text-align: left;
                 }
             }
         }
     }
 
     .map {
+        position: relative;
         width: 100%;
         height: 350px;
 
         iframe {
             width: 100%;
             height: 350px;
+        }
+        > div {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            > div {
+                width: fit-content;
+
+                padding: 15px 10px;
+                box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+
+                cursor: pointer;
+
+                background-color: #ffffff;
+                color: #000000;
+                font-size: 14px;
+                text-align: center;
+                &:hover {
+                    background-color: #5b8c5af1;
+
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    > article#kontakt {
+        width: 100%;
+        height: 132px;
+        background-color: $brown;
+        opacity: 0.95;
+        color: $white;
+
+        @include df(space-around, center);
+        section {
+            @include df(center, center);
+            flex: 1;
+            > div,
+            > img {
+                margin: 0px 10px;
+            }
+        }
+        @media (max-width: 800px) {
+            height: 200px;
+            section {
+                flex-direction: column;
+                > div,
+                > img {
+                    margin: 5px 0px;
+                }
+            }
+        }
+        @media (max-width: 800px) {
+            flex-direction: column;
+            height: 600px;
         }
     }
 
@@ -222,37 +256,35 @@
     }
 
     @media (max-width: 600px) {
-        #main-home {
-            .slider {
-                height: 620px - $header-height;
-            }
-            nav {
-                grid-template-areas:
-                    "news"
-                    "gal"
-                    "cal";
-                section {
-                    &.news {
-                        grid-area: news;
-                    }
-                    &.cal {
-                        grid-area: cal;
-                    }
-                    &.gal {
-                        grid-area: gal;
-                    }
+        .slider {
+            height: 620px - $header-height;
+        }
+        nav {
+            grid-template-areas:
+                "news"
+                "gal"
+                "cal";
+            section {
+                &.news {
+                    grid-area: news;
+                }
+                &.cal {
+                    grid-area: cal;
+                }
+                &.gal {
+                    grid-area: gal;
                 }
             }
-            .history {
-                padding: 128px 32px;
-                > div {
-                    position: relative;
-                    .mark {
-                        position: absolute;
-                        top: -24px;
-                        opacity: 0.3;
-                        transform: scale(2);
-                    }
+        }
+        .history {
+            padding: 128px 32px;
+            > div {
+                position: relative;
+                .mark {
+                    position: absolute;
+                    top: -24px;
+                    opacity: 0.3;
+                    transform: scale(2);
                 }
             }
         }
