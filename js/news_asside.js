@@ -1,10 +1,12 @@
+/*
 var asside = document.getElementById("cal");
-asside.addEventListener("click", function () {
+asside.addEventListener("click", function() {
     if (asside.style.transform == "0") {
         asside.classList.toggle("expand");
     }
 });
-var Calendar = /** @class */ (function () {
+*/
+var Calendar = /** @class */ (function() {
     function Calendar() {
         this.today = new Date();
         this.day = this.today.getDate();
@@ -18,19 +20,18 @@ var Calendar = /** @class */ (function () {
         this.elmYear = document.getElementById("year");
         this.elmDays = document.getElementById("days");
     }
-    Calendar.prototype.countMonthDays = function (b) {
-        if ((b + (1 % 2) == 0 && b + 1 < 7) ||
-            (b + (1 % 2) == 1 && b + 1 > 8)) {
-            if (b == 2)
-                return 28;
-            else
-                return 30;
-        }
-        else {
+    Calendar.prototype.countMonthDays = function(b) {
+        if (
+            (b + (1 % 2) == 0 && b + 1 < 7) ||
+            (b + (1 % 2) == 1 && b + 1 > 8)
+        ) {
+            if (b == 2) return 28;
+            else return 30;
+        } else {
             return 31;
         }
     };
-    Calendar.prototype.getMonthName = function (month) {
+    Calendar.prototype.getMonthName = function(month) {
         if (month == 0) {
             return "Styczeń";
         }
@@ -68,12 +69,14 @@ var Calendar = /** @class */ (function () {
             return "Grudzień";
         }
     };
-    Calendar.prototype.createCal = function () {
+    Calendar.prototype.createCal = function() {
+        /*
         this.elmYear.href = "#/" + this.year;
         this.elmYear.innerHTML = this.year;
         this.elmMonth.href =
             "#/" + this.getMonthName(this.month).toLocaleLowerCase();
         this.elmMonth.innerHTML = this.getMonthName(this.month);
+        
         var a = "";
         for (var i = 0; i < this.startDayName - 1; i++) {
             a += '<div class="day disable">' + " " + "</div>";
@@ -81,21 +84,45 @@ var Calendar = /** @class */ (function () {
         for (var i = 0; i < this.daysInMonth; i++) {
             a +=
                 '<a href="' +
-                    "#/" +
-                    (i + 1) +
-                    "/" +
-                    (this.month + 1) +
-                    "/" +
-                    this.year +
-                    '" class="day' +
-                    (i + 1 == this.day ? " today" : "") +
-                    '">' +
-                    (i + 1) +
-                    "</a>";
+                "#/" +
+                (i + 1) +
+                "/" +
+                (this.month + 1) +
+                "/" +
+                this.year +
+                '" class="day' +
+                (i + 1 == this.day ? " today" : "") +
+                '">' +
+                (i + 1) +
+                "</a>";
         }
         this.elmDays.innerHTML = a;
+        */
     };
     return Calendar;
-}());
+})();
 var a = new Calendar();
 a.createCal();
+
+var macy = Macy({
+    container: "#macy1",
+    trueOrder: false,
+    waitForImages: false,
+    margin: 64,
+    columns: 3,
+    breakAt: {
+        1500: 2,
+        1000: 1
+    }
+});
+var macy2 = Macy({
+    container: "#macy2",
+    trueOrder: false,
+    waitForImages: false,
+    margin: 64,
+    columns: 3,
+    breakAt: {
+        1500: 2,
+        1000: 1
+    }
+});

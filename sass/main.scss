@@ -8,9 +8,203 @@
 @import "gallery";
 @import "news";
 @import "post";
+@import "lbx";
 /* BUFFOR CSS */
 
-body#body-news {
-}
+.treningi {
+    overflow: hidden;
+    .title {
+        padding: 80px 0px 80px 80px;
+        font-size: 48px;
+        color: $brown;
+        max-width: 100%;
+        @media (max-width: 1000px) {
+            font-size: 40px;
+            padding: 48px 0px 48px 48px;
+        }
+        @media (max-width: 700px) {
+            font-size: 32px;
+            padding-left: 32px;
+        }
+        @media (max-width: 600px) {
+            font-size: 24px;
+            padding-left: 24px;
+        }
+    }
 
+    article {
+        position: relative;
+
+        max-width: 100%;
+        overflow: auto;
+
+        display: grid;
+        grid-template-areas:
+            "float week"
+            "city1 data1"
+            "city2 data2";
+
+        margin: 64px;
+        @media (max-width: 1000px) {
+            margin: 32px;
+        }
+        @media (max-width: 700px) {
+            margin: 24px;
+        }
+        @media (max-width: 600px) {
+            margin: 8px;
+        }
+
+        font-size: 18px;
+        section {
+            padding: 16px;
+            &#data1,
+            &#data2 {
+                div {
+                    @include df(center, center);
+                    flex-direction: column;
+                    div {
+                        border-bottom: 1px solid $brown;
+                        text-align: center;
+                        height: 60px;
+                    }
+                }
+            }
+        }
+        .week {
+            @media (min-width: 500px) {
+                position: sticky;
+                top: 0em;
+            }
+
+            grid-area: week;
+
+            display: grid;
+            grid-template-areas: "group pon wt sr cz pt sob";
+            grid-template-columns: repeat(7, 160px);
+
+            text-align: center;
+            > div {
+                &:nth-child(1) {
+                    grid-area: group;
+                }
+                &:nth-child(2) {
+                    grid-area: pon;
+                }
+                &:nth-child(3) {
+                    grid-area: wt;
+                }
+                &:nth-child(4) {
+                    grid-area: sr;
+                }
+                &:nth-child(5) {
+                    grid-area: cz;
+                }
+                &:nth-child(6) {
+                    grid-area: pt;
+                }
+                &:nth-child(7) {
+                    grid-area: sob;
+                }
+            }
+        }
+        .group {
+            text-align: center;
+        }
+        #float {
+            grid-area: float;
+
+            @media (min-width: 500px) {
+                position: sticky;
+                left: 0px;
+            }
+
+            background-color: $white;
+        }
+        #city1,
+        #city2 {
+            @media (min-width: 500px) {
+                position: sticky;
+                left: 0px;
+            }
+            background-color: $white;
+            > div {
+                @include df(center, flex-start);
+                flex-direction: column;
+                width: 170px;
+                div {
+                    @include df(center, center);
+                    height: 60px;
+                }
+            }
+            div {
+                > div:first-child {
+                    font-size: 24px;
+                    color: rgb(191, 150, 99);
+                }
+                > div {
+                    border: none;
+                }
+            }
+        }
+        #data1,
+        #data2 {
+            width: fit-content;
+            display: grid;
+            grid-template-areas: "pon wt sr cz pt sob";
+            grid-template-columns: repeat(7, 160px);
+            > div {
+                &:nth-child(1) {
+                    grid-area: pon;
+                }
+                &:nth-child(2) {
+                    grid-area: wt;
+                }
+                &:nth-child(3) {
+                    grid-area: sr;
+                }
+                &:nth-child(4) {
+                    grid-area: cz;
+                }
+                &:nth-child(5) {
+                    grid-area: pt;
+                }
+                &:nth-child(6) {
+                    grid-area: sob;
+                }
+            }
+        }
+        #city1 {
+            grid-area: city1;
+        }
+        #city2 {
+            grid-area: city2;
+        }
+        #data1 {
+            grid-area: data1;
+        }
+        #data2 {
+            grid-area: data2;
+        }
+    }
+    .info {
+        max-width: 700px;
+        overflow: auto;
+
+        padding-left: 64px;
+        padding-bottom: 32px;
+        @media (max-width: 1000px) {
+            padding-left: 32px;
+        }
+        @media (max-width: 700px) {
+            padding-left: 24px;
+        }
+        @media (max-width: 600px) {
+            padding-left: 8px;
+        }
+        div {
+            padding: 16px;
+        }
+    }
+}
 /* BUFFOR CSS */

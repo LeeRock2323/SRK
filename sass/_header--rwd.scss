@@ -35,10 +35,15 @@
             box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
 
             overflow: visible;
-            transition: height 0.5s ease, overflow 3s ease;
+            transition: all 0.5s ease;
 
             a {
+                transition: all 0.5s ease;
                 color: $white;
+                top: unset;
+                &:hover {
+                    color: $mint;
+                }
             }
             div {
                 padding: 10px 0px;
@@ -48,10 +53,12 @@
             }
         }
         .hidden {
+            z-index: -1;
             .hidden {
+                position: fixed;
                 display: block;
-                height: 0px;
-                overflow: hidden;
+                left: -100%;
+                z-index: -1;
             }
         }
     }

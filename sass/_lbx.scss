@@ -1,0 +1,111 @@
+#lbxC {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+#lbx {
+    width: 100%;
+    height: 100%;
+}
+#lbxC.visible {
+    overflow: visible;
+    opacity: 1;
+    display: unset;
+}
+
+#close-lbx {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    z-index: 100;
+
+    width: 30px;
+    height: 30px;
+
+    border: 2px solid $white;
+    border-radius: 30px;
+
+    background-color: $white;
+
+    @include df(center, center);
+    font-weight: 500;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: $white;
+
+    cursor: pointer;
+}
+.body-lbx {
+    margin-top: 0;
+
+    background-color: black;
+    height: 100vh;
+    main {
+        height: fit-content;
+
+        flex-direction: column;
+        section {
+            &::-webkit-scrollbar {
+                width: 7px;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+                width: 7px;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background-color: $mint;
+            }
+
+            /* Hanlde on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: $mint;
+            }
+
+            &:first-child {
+                max-width: 90%;
+                width: fit-content;
+                margin: auto;
+                overflow: auto;
+                scrollbar-color: $mint transparent; /* thumb and track color */
+                scrollbar-width: thin;
+            }
+            &:last-child {
+                flex: 1;
+                height: 30%;
+                width: 100%;
+                display: grid;
+                grid-gap: 32px;
+                grid-template-columns: repeat(18, 250px);
+                grid-template-rows: 100%;
+                padding: 16px 32px 0px 0px;
+
+                overflow-x: scroll;
+                overflow-y: hidden;
+                img {
+                    height: 200px;
+                }
+                scrollbar-color: $mint transparent; /* thumb and track color */
+                scrollbar-width: thin;
+            }
+        }
+    }
+}
+#close-lbx {
+    span {
+        position: absolute;
+        background-color: black;
+        width: 5px;
+        height: 20px;
+    }
+    > :first-child {
+        transform: rotate(45deg);
+    }
+    > :last-child {
+        transform: rotate(-45deg);
+    }
+}

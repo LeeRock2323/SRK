@@ -8,13 +8,16 @@
         <style>
             @import url("https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap&subset=latin-ext");
         </style>
-        <script defer src="js/burger.js"></script>
+        <script defer src="../js/burger.js"></script>
+        <script defer src="../js/galleryLB.js"></script>
         <link rel="stylesheet" href="../css/min/main.min.css" />
     </head>
-    <body>
-        <header class="">
+    <body class="ouuu">
+        <header>
             <div class="logo">
-                <a href="../home.html"><img src="img/png/logo.png" alt=""/></a>
+                <a href="../home.html">
+                    <img src="../img/png/Logo.png" alt="" />
+                </a>
             </div>
             <nav class="desktop">
                 <div><a href="../o nas.html">O nas</a></div>
@@ -39,26 +42,59 @@
             </div>
         </header>
         <main id="gallery">
+            <div id="lbxC"></div>
             <div class="title">Treningi</div>
-            <article class="mini">
+            <article class="mini" id="ff">
                 <div>
-                    <img src="../img/png/gallery/galeria1/1.jpg" alt="" />
+                    <img
+                        class="mini__foto"
+                        src="../img/png/gallery/galeria1/1.jpg"
+                        alt=""
+                    />
                     <div>przykładowy podpis jeśli potrzebny</div>
                 </div>
-                <img src="../img/png/gallery/galeria1/2.jpg" alt="" />
-                <img src="../img/png/gallery/galeria1/3.jpg" alt="" />
+                <img
+                    class="mini__foto"
+                    src="../img/png/gallery/galeria1/2.jpg"
+                    alt=""
+                />
+                <img
+                    class="mini__foto"
+                    src="../img/png/gallery/galeria1/3.jpg"
+                    alt=""
+                />
                 <div>
-                    <img src="../img/png/gallery/galeria1/1.jpg" alt="" />
+                    <img
+                        class="mini__foto"
+                        src="../img/png/gallery/galeria1/1.jpg"
+                        alt=""
+                    />
                     <div>Tu też jest</div>
                 </div>
-                <img src="../img/png/gallery/galeria1/2.jpg" alt="" />
-                <img src="../img/png/gallery/galeria1/3.jpg" alt="" />
+                <img
+                    class="mini__foto"
+                    src="../img/png/gallery/galeria1/2.jpg"
+                    alt=""
+                />
+                <img
+                    class="mini__foto"
+                    src="../img/png/gallery/galeria1/3.jpg"
+                    alt=""
+                />
                 <div>
-                    <img src="../img/png/gallery/galeria1/1.jpg" alt="" />
+                    <img
+                        class="mini__foto"
+                        src="../img/png/gallery/galeria1/1.jpg"
+                        alt=""
+                    />
                     <div>Działa pod atrybut hover</div>
                 </div>
             </article>
         </main>
+        <aside id="close-lbx">
+            <span></span>
+            <span></span>
+        </aside>
         <footer><span>© Copyright 2020 All Rights Reserved</span></footer>
     </body>
 </html>

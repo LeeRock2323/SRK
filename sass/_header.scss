@@ -37,7 +37,8 @@ header {
     } /*logo i link w wymiarach 100px, fit-content */
 
     > nav {
-        width: 500px;
+        max-width: 500px;
+        width: 100%;
 
         grid-area: nav;
         display: grid;

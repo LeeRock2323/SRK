@@ -2,32 +2,52 @@ body#body-news {
     margin-top: $header-height;
 
     header {
-        position: absolute;
+        position: fixed;
     }
-
+    spot {
+        width: 100%;
+        height: fit-content;
+    }
     .article__header {
+        position: sticky;
         width: 100%;
 
-        padding: 16px 0px 4px 16px;
-        border-bottom: 3px solid rgba(68, 140, 48, 0.5);
+        padding: 16px 0px 16px 0px;
+        border: none;
+        border-top: 3px solid rgba(68, 140, 48, 0.5);
 
         background-color: #ededed;
 
         font-size: 24px;
         color: rgba(68, 140, 48, 0.5);
+        legend {
+            margin: auto auto auto 50px;
+            padding: 0 10px 0 20px;
+        }
     }
     main {
-        max-width: 500px;
+        max-width: 1500px;
+        @media (max-width: 1500px) {
+            max-width: 1000px;
+        }
+        @media (max-width: 1000px) {
+            max-width: 500px;
+        }
         width: 100%;
         margin: auto;
         padding: 32px 0;
-
+        article {
+            width: 500px;
+        }
         .post {
             padding-top: 32px;
+            section {
+                max-width: 500px;
+                width: 100%;
+            }
             &__big {
                 section:first-child {
                     height: fit-content;
-                    width: 100%;
 
                     background-color: #e3e3e3;
 

@@ -32,6 +32,9 @@
             font-size: 24px;
 
             transition: all 0.4s ease;
+            & > div:last-child {
+                text-align: center;
+            }
             &.news {
                 color: #bf9663;
                 a {

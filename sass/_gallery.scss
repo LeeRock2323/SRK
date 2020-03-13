@@ -1,3 +1,6 @@
+.ouuu main .mini.hidden {
+    display: none !important;
+}
 #gallery {
     .title {
         max-width: 1200px;
@@ -24,8 +27,22 @@
         padding: 64px 0;
 
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 440px));
+        grid-template-columns: repeat(auto-fill, minmax(0px, 440px));
         grid-gap: 32px;
+
+        &.mini {
+            > div {
+                div {
+                    opacity: 0;
+                    transition: all 0.2s ease;
+                }
+                &:hover {
+                    div {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
 
         > a,
         > div {
@@ -41,30 +58,23 @@
             div {
                 position: absolute;
                 bottom: 0px;
+                @media (max-width: 450px) {
+                    bottom: 15px;
+                }
                 left: 0;
 
                 width: 100%;
-                height: 0px;
-
-                overflow: hidden;
+                height: 60px;
 
                 @include df(center, center);
 
                 text-transform: uppercase;
 
-                transition: all 0.2s ease;
                 @media (max-width: 400px) {
                     font-size: 14px;
                 }
-                &:hover {
-                    height: 60px;
-                    overflow: visible;
-                }
             }
-            &:hover div {
-                height: 60px;
-                overflow: visible;
-            }
+
             &:nth-child(4n + 1) > div {
                 background-color: rgba(89, 59, 52, 0.9);
                 color: $white;
