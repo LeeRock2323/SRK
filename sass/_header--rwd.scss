@@ -1,5 +1,8 @@
 @media (max-width: 800px) {
+    $header-height: $header-height - 40px;
+
     header {
+        height: $header-height;
         .desktop {
             display: none;
         }

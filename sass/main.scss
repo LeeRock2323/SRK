@@ -9,202 +9,107 @@
 @import "news";
 @import "post";
 @import "lbx";
+@import "form";
 /* BUFFOR CSS */
+#to-top {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
 
-.treningi {
-    overflow: hidden;
-    .title {
-        padding: 80px 0px 80px 80px;
-        font-size: 48px;
-        color: $brown;
-        max-width: 100%;
-        @media (max-width: 1000px) {
-            font-size: 40px;
-            padding: 48px 0px 48px 48px;
-        }
-        @media (max-width: 700px) {
-            font-size: 32px;
-            padding-left: 32px;
-        }
-        @media (max-width: 600px) {
-            font-size: 24px;
-            padding-left: 24px;
-        }
+    width: 100px;
+    height: 100px;
+
+    @include df(center, center);
+
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+
+    &.hidden {
+        display: none;
+        opacity: 0;
     }
 
-    article {
+    div {
         position: relative;
 
-        max-width: 100%;
-        overflow: auto;
+        width: 50%;
+        height: 50%;
 
-        display: grid;
-        grid-template-areas:
-            "float week"
-            "city1 data1"
-            "city2 data2";
+        border: 3px solid $mint;
+        border-radius: 50px;
 
-        margin: 64px;
-        @media (max-width: 1000px) {
-            margin: 32px;
-        }
-        @media (max-width: 700px) {
-            margin: 24px;
-        }
-        @media (max-width: 600px) {
-            margin: 8px;
-        }
+        span {
+            position: absolute;
+            top: 50%;
 
-        font-size: 18px;
-        section {
-            padding: 16px;
-            &#data1,
-            &#data2 {
-                div {
-                    @include df(center, center);
-                    flex-direction: column;
-                    div {
-                        border-bottom: 1px solid $brown;
-                        text-align: center;
-                        height: 60px;
-                    }
-                }
+            width: 3px;
+            height: 20px;
+
+            border-radius: 10px;
+
+            background-color: $mint;
+
+            &:first-child {
+                transform: translateY(-50%) rotate(45deg);
+                left: 14px;
             }
-        }
-        .week {
-            @media (min-width: 500px) {
-                position: sticky;
-                top: 0em;
+            &:last-child {
+                transform: translateY(-50%) rotate(-45deg);
+                right: 14px;
             }
-
-            grid-area: week;
-
-            display: grid;
-            grid-template-areas: "group pon wt sr cz pt sob";
-            grid-template-columns: repeat(7, 160px);
-
-            text-align: center;
-            > div {
-                &:nth-child(1) {
-                    grid-area: group;
-                }
-                &:nth-child(2) {
-                    grid-area: pon;
-                }
-                &:nth-child(3) {
-                    grid-area: wt;
-                }
-                &:nth-child(4) {
-                    grid-area: sr;
-                }
-                &:nth-child(5) {
-                    grid-area: cz;
-                }
-                &:nth-child(6) {
-                    grid-area: pt;
-                }
-                &:nth-child(7) {
-                    grid-area: sob;
-                }
-            }
-        }
-        .group {
-            text-align: center;
-        }
-        #float {
-            grid-area: float;
-
-            @media (min-width: 500px) {
-                position: sticky;
-                left: 0px;
-            }
-
-            background-color: $white;
-        }
-        #city1,
-        #city2 {
-            @media (min-width: 500px) {
-                position: sticky;
-                left: 0px;
-            }
-            background-color: $white;
-            > div {
-                @include df(center, flex-start);
-                flex-direction: column;
-                width: 170px;
-                div {
-                    @include df(center, center);
-                    height: 60px;
-                }
-            }
-            div {
-                > div:first-child {
-                    font-size: 24px;
-                    color: rgb(191, 150, 99);
-                }
-                > div {
-                    border: none;
-                }
-            }
-        }
-        #data1,
-        #data2 {
-            width: fit-content;
-            display: grid;
-            grid-template-areas: "pon wt sr cz pt sob";
-            grid-template-columns: repeat(7, 160px);
-            > div {
-                &:nth-child(1) {
-                    grid-area: pon;
-                }
-                &:nth-child(2) {
-                    grid-area: wt;
-                }
-                &:nth-child(3) {
-                    grid-area: sr;
-                }
-                &:nth-child(4) {
-                    grid-area: cz;
-                }
-                &:nth-child(5) {
-                    grid-area: pt;
-                }
-                &:nth-child(6) {
-                    grid-area: sob;
-                }
-            }
-        }
-        #city1 {
-            grid-area: city1;
-        }
-        #city2 {
-            grid-area: city2;
-        }
-        #data1 {
-            grid-area: data1;
-        }
-        #data2 {
-            grid-area: data2;
-        }
-    }
-    .info {
-        max-width: 700px;
-        overflow: auto;
-
-        padding-left: 64px;
-        padding-bottom: 32px;
-        @media (max-width: 1000px) {
-            padding-left: 32px;
-        }
-        @media (max-width: 700px) {
-            padding-left: 24px;
-        }
-        @media (max-width: 600px) {
-            padding-left: 8px;
-        }
-        div {
-            padding: 16px;
         }
     }
 }
+#instructor {
+    > div:first-child {
+        margin: 32px auto;
+
+        font-size: 38px;
+        text-align: center;
+    }
+    > div:last-child {
+        max-width: 1370px;
+        width: 100%;
+        margin: 64px auto;
+
+        section {
+            max-width: 1200px;
+            width: 100%;
+
+            height: fit-content;
+
+            margin: auto;
+
+            @include df(space-around, center);
+            .photo {
+                max-width: 300px;
+                width: 90%;
+                height: auto;
+                background-color: #e3e3e3;
+                img {
+                    width: 100%;
+                    height: auto;
+                    border: none;
+                }
+            }
+            .desc {
+                max-width: 500px;
+                width: 90%;
+                text-align: left;
+            }
+        }
+    }
+    @media (max-width: 900px) {
+        > div:last-child {
+            > section {
+                flex-direction: column;
+                .desc {
+                    padding-top: 10px;
+                }
+            }
+        }
+    }
+}
+
 /* BUFFOR CSS */

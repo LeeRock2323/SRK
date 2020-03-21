@@ -51,9 +51,17 @@
             max-width: 440px;
             max-height: 292.66px;
             height: fit-content;
+
+            overflow: hidden;
             img {
                 width: 100%;
                 height: 100%;
+
+                transition: all 2s ease-in-out;
+
+                &:hover {
+                    transform: scale(1.5);
+                }
             }
             div {
                 position: absolute;

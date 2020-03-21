@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="pl">
-    <head>
+<html lang="en">
+    <head disable>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Karate SHORIN-RYU Sztuki Walki" />
@@ -9,6 +9,8 @@
             @import url("https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap&subset=latin-ext");
         </style>
         <script defer src="js/burger.js"></script>
+        <script defer src="js/form.js"></script>
+        <script defer src="js/open.js"></script>
         <link rel="stylesheet" href="css/min/main.min.css" />
     </head>
     <body>
@@ -31,84 +33,96 @@
                 </div>
                 <nav id="mobile" class="mobile hidden">
                     <div><a href="o nas.html">O nas</a></div>
-                    <div><a href="sectioneningi.html">sectioneningi</a></div>
+                    <div><a href="treningi.html">Treningi</a></div>
                     <div><a href="aktualnosci.html">Aktualności</a></div>
                     <div><a href="galeria.html">Galeria</a></div>
                     <div><a href="kontakt.html">Kontakt</a></div>
                 </nav>
             </div>
         </header>
-        <main class="treningi">
-            <div class="title">Zapisz się i trenuj z nami</div>
-            <article>
-                <section class="week">
-                    <div>grupa</div>
-                    <div>poniedziałek</div>
-                    <div>wtorek</div>
-                    <div>środa</div>
-                    <div>czwartek</div>
-                    <div>piątek</div>
-                    <div>sobota</div>
-                </section>
-                <section id="city1">
-                    <div>
-                        <div>Kobyłka</div>
-                        <div>Szkoła podstawowa nr 2</div>
-                    </div>
-                </section>
-                <section id="float"></section>
-                <section id="data1">
-                    <div class="group">
-                        <div>początująca</div>
-                        <div>zaawansowana</div>
-                    </div>
-                    <div>
-                        <div>16:15 - 17:15</div>
-                        <div>17:15 - 18:45</div>
-                    </div>
-                    <div></div>
-                    <div></div>
-                    <div>
-                        <div>16:15 - 17:15</div>
-                        <div>17:15 - 18:45</div>
-                    </div>
-                    <div></div>
-                    <div></div>
-                </section>
-                <section id="city2">
-                    <div>
-                        <div>Siedlce</div>
-                        <div>Szkoła podstawowa nr 8</div>
-                    </div>
-                </section>
-                <section id="data2">
-                    <div class="group"></div>
-                    <div></div>
-                    <div>
-                        <div>16:00 - 17:00</div>
-                    </div>
-                    <div>
-                        <div>16:00 - 17:00</div>
-                    </div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </section>
-            </article>
-            <div class="info">
-                <div>
-                    * zajęcia prowadzimy dla dzieci od 5 roku zycia
+
+        <main id="form">
+            <div class="title">Kontakt</div>
+
+            <form action="">
+                <div class="form-input" id="name" aria-required="true" required>
+                    <input
+                        type="text"
+                        name="name"
+                        value=""
+                        placeholder="imię"
+                    />
+                    <img src="img/svg/kontakt/name.svg" alt="name" />
                 </div>
-                <div>
-                    Karate Integracyjne(Obejmuje ćwiczenia ogólnorozwojowe
-                    zawierające wyodrębnione elementy sectionadycyjnego karate
-                    Shorin - Ryu, skomponowane specjalnie pod kątem rozwoju i
-                    stymulacji dzieci z zaburzeniami fizycznymi i psychicznymi
-                    (zespół Aspergera, różne rodzaje AUTYZMU, nadpobudliwość
-                    ruchowa)).
+                <div class="form-input" id="surname">
+                    <input
+                        type="text"
+                        name="surname"
+                        value=""
+                        placeholder="nazwisko"
+                    /><img src="img/svg/kontakt/name.svg" alt="name" />
                 </div>
-            </div>
+                <div class="form-input" id="phone">
+                    <input
+                        type="text"
+                        name="phone"
+                        value=""
+                        placeholder="telefon"
+                    /><img src="img/svg/kontakt/phone.svg" alt="phone" />
+                </div>
+                <div class="form-input" id="email">
+                    <input
+                        type="text"
+                        name="email"
+                        value=""
+                        placeholder="email"
+                    /><img src="img/svg/kontakt/email.svg" alt="email" />
+                </div>
+                <div class="form-input" id="msg">
+                    <input
+                        type="text"
+                        name="message"
+                        value=""
+                        placeholder="wiadomość"
+                    />
+                    <img src="img/svg/kontakt/message.svg" alt="message" />
+                </div>
+                <button
+                    class="form-button"
+                    type="submit"
+                    id="send"
+                    disabled
+                    onclick='alert("Odezwiemy się do Ciebie niedługo");'
+                >
+                    <span>
+                        wyślij <img src="img/svg/kontakt/send.svg" alt="" />
+                    </span>
+                </button>
+            </form>
         </main>
+        <article id="kontakt">
+            <section>
+                <img src="img/svg/home/call-phone.svg" alt="" />
+                <div>
+                    <div>798 744 870</div>
+                    <div>Dostępny 24/7</div>
+                </div>
+            </section>
+            <section>
+                <img src="img/svg/home/loc-pin.svg" alt="" />
+                <div id="loc">
+                    <div>ul. Elizy Orzeszkowej 3/5</div>
+                    <div>Kobyłka, 05-230</div>
+                </div>
+            </section>
+            <section>
+                <img src="img/svg/home/time.svg" alt="" />
+                <div>
+                    <div id="time">16:00 - 18:30</div>
+                    <div id="day">Poniedziałek</div>
+                </div>
+            </section>
+        </article>
         <footer><span>© Copyright 2020 All Rights Reserved</span></footer>
     </body>
 </html>

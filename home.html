@@ -17,9 +17,11 @@
         ></script>
         <script defer src="js/burger.js"></script>
         <script defer src="js/map.js"></script>
+        <script defer src="js/open.js"></script>
+        <script defer src="js/header.js"></script>
     </head>
     <body>
-        <header class="">
+        <header id="header">
             <div class="logo">
                 <a href="home.html"><img src="img/png/logo.png" alt=""/></a>
             </div>
@@ -45,6 +47,9 @@
                 </nav>
             </div>
         </header>
+        <div id="to-top" class="hidden">
+            <div><span></span><span></span></div>
+        </div>
         <main id="main-home">
             <div class="slider">
                 <span>PICTURE</span>
@@ -125,7 +130,7 @@
                     </section>
                 </div>
             </article>
-            <article class="map">
+            <article class="map" id="map">
                 <div>
                     <div id="change">Znajdź nas w Siedlcach</div>
                 </div>
@@ -140,6 +145,7 @@
                 >
                 </iframe>
             </article>
+
             <article id="kontakt">
                 <section>
                     <img src="img/svg/home/call-phone.svg" alt="" />

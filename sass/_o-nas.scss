@@ -1,11 +1,10 @@
 #o-nas {
-    width: 100%;
     .title {
         max-width: 1200px;
-        width: 100%;
+        width: 90%;
 
         margin: auto;
-        padding: 64px 0 0;
+        padding: 64px 0 0 0px;
 
         font-size: 64px;
     }
@@ -45,13 +44,19 @@
     }
     @media (max-width: 800px) {
         position: relative;
-        .mark {
-            position: absolute;
-            opacity: 0.1;
-            left: 50%;
-            transform: scale(2) translate(-25%);
-            margin: auto;
-            padding: 0;
+        & {
+            article {
+                div {
+                    .mark {
+                        position: absolute;
+                        opacity: 0.1;
+                        left: 50%;
+                        transform: scale(2) translate(-25%);
+                        margin: auto;
+                        padding: 0;
+                    }
+                }
+            }
         }
     }
 }

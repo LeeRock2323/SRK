@@ -10,22 +10,33 @@
 }
 
 html {
+  min-height: 100vh;
   width: 100%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
   scroll-behavior: smooth;
 }
 
 body {
+  position: relative;
+  height: 100%;
   font-family: "Oswald", sans-serif;
   background-color: #ededed;
   color: black;
-  margin-top: 120px;
-  position: relative;
   /* Track */
   /* Handle */
   /* Hanlde on hover */
+}
+
+body main {
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  padding-top: 120px;
+}
+
+@media (max-width: 800px) {
+  body main {
+    padding-top: 80px;
+  }
 }
 
 body::-webkit-scrollbar {
@@ -94,6 +105,9 @@ header {
   background-color: #bad9c8;
   -webkit-box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   /*logo i link w wymiarach 100px, fit-content */
 }
 
@@ -101,19 +115,21 @@ header a {
   color: #593b34;
 }
 
+header.opacity0 {
+  opacity: 0;
+}
+
 header > .logo {
-  width: 100px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  width: auto;
+  height: 100%;
   grid-area: logo;
   margin: auto 10px;
 }
 
 header .logo > a,
 header a > img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 
 header > nav {
@@ -134,6 +150,9 @@ header > nav > div {
 }
 
 @media (max-width: 800px) {
+  header {
+    height: 80px;
+  }
   header .desktop {
     display: none;
   }
@@ -166,7 +185,7 @@ header > nav > div {
   header .mobile {
     position: fixed;
     left: 0;
-    top: 120px;
+    top: 80px;
     width: 100%;
     height: 230px;
     background-color: #593b34;
@@ -390,52 +409,8 @@ header > nav > div {
   color: #593b34;
 }
 
-#main-home #instructor > div:first-child {
-  margin: 32px auto;
-  font-size: 38px;
-  text-align: center;
-}
-
-#main-home #instructor > div:last-child {
-  max-width: 1370px;
-  width: 100%;
-  margin: 64px auto;
-}
-
-#main-home #instructor > div:last-child section {
-  max-width: 1200px;
-  width: 100%;
-  height: 400px;
-  margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#main-home #instructor > div:last-child section .photo {
-  width: 300px;
-  height: auto;
-  background-color: #e3e3e3;
-}
-
-#main-home #instructor > div:last-child section .photo img {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-#main-home #instructor > div:last-child section .desc {
-  max-width: 500px;
-  width: 100%;
-  text-align: left;
-}
-
 #main-home .map {
+  margin-top: 120px;
   position: relative;
   width: 100%;
   height: 350px;
@@ -471,68 +446,6 @@ header > nav > div {
 #main-home .map > div > div:hover {
   background-color: #5b8c5af1;
   color: #ededed;
-}
-
-#main-home > article#kontakt {
-  width: 100%;
-  height: 132px;
-  background-color: #593b34;
-  opacity: 0.95;
-  color: #ededed;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#main-home > article#kontakt section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-#main-home > article#kontakt section > div,
-#main-home > article#kontakt section > img {
-  margin: 0px 10px;
-}
-
-@media (max-width: 800px) {
-  #main-home > article#kontakt {
-    height: 200px;
-  }
-  #main-home > article#kontakt section {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  #main-home > article#kontakt section > div,
-  #main-home > article#kontakt section > img {
-    margin: 5px 0px;
-  }
-}
-
-@media (max-width: 800px) {
-  #main-home > article#kontakt {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    height: 600px;
-  }
 }
 
 @media (max-width: 1200px) {
@@ -599,15 +512,73 @@ header > nav > div {
   }
 }
 
-#o-nas {
+article#kontakt {
   width: 100%;
+  height: 132px;
+  background-color: #593b34;
+  color: #ededed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+article#kontakt section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+article#kontakt section > div,
+article#kontakt section > img {
+  margin: 0px 10px;
+}
+
+@media (max-width: 800px) {
+  article#kontakt {
+    height: 200px;
+  }
+  article#kontakt section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  article#kontakt section > div,
+  article#kontakt section > img {
+    margin: 5px 0px;
+  }
+}
+
+@media (max-width: 800px) {
+  article#kontakt {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 600px;
+    text-align: center;
+  }
 }
 
 #o-nas .title {
   max-width: 1200px;
-  width: 100%;
+  width: 90%;
   margin: auto;
-  padding: 64px 0 0;
+  padding: 64px 0 0 0px;
   font-size: 64px;
 }
 
@@ -664,7 +635,7 @@ header > nav > div {
   #o-nas {
     position: relative;
   }
-  #o-nas .mark {
+  #o-nas article div .mark {
     position: absolute;
     opacity: 0.1;
     left: 50%;
@@ -675,118 +646,347 @@ header > nav > div {
   }
 }
 
-#treningi .title {
-  font-size: 48px;
-  text-align: center;
-  padding: 32px;
+.treningi {
+  overflow: hidden;
 }
 
-#treningi article {
-  padding: 32px 0 48px;
-  max-width: 1600px;
-  margin: auto;
+.treningi a {
+  color: unset;
+}
+
+.treningi .title {
+  padding: 80px 0px 80px 80px;
+  font-size: 48px;
+  color: #593b34;
+  max-width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .treningi .title {
+    font-size: 40px;
+    padding: 48px 0px 48px 48px;
+  }
+}
+
+@media (max-width: 700px) {
+  .treningi .title {
+    font-size: 32px;
+    padding-left: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .treningi .title {
+    font-size: 24px;
+    padding-left: 24px;
+  }
+}
+
+.treningi article {
+  position: relative;
+  max-width: 100%;
+  overflow: auto;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(320px, 500px))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(320px, 500px));
-  grid-gap: 32px;
+      grid-template-areas: "float week" "city1 data1" "city2 data2";
+  margin: 64px;
+  font-size: 18px;
 }
 
-#treningi article section {
-  max-width: 500px;
-  min-height: 280px;
-  background-color: #f5f5f5;
+@media (max-width: 1000px) {
+  .treningi article {
+    margin: 32px;
+  }
 }
 
-#treningi article section div {
-  padding: 4px 32px 0;
+@media (max-width: 700px) {
+  .treningi article {
+    margin: 24px;
+  }
 }
 
-#treningi article section div div {
-  padding: 0;
+@media (max-width: 600px) {
+  .treningi article {
+    margin: 8px;
+  }
 }
 
-#treningi article section .place {
-  padding: 12px 32px 0;
-  font-size: 32px;
+.treningi article section {
+  padding: 16px;
+}
+
+.treningi article section#data1 div, .treningi article section#data2 div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.treningi article section#data1 div div, .treningi article section#data2 div div {
+  text-align: center;
+  height: 60px;
+  border-bottom: 0px solid #593b34;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+}
+
+.treningi article section#data1 div div:hover, .treningi article section#data2 div div:hover {
+  border-bottom: 3px solid #593b34;
+  cursor: pointer;
+}
+
+.treningi article .week {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: week;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "group pon wt sr cz pt sob";
+  -ms-grid-columns: (160px)[7];
+      grid-template-columns: repeat(7, 160px);
+  text-align: center;
+}
+
+@media (min-width: 500px) {
+  .treningi article .week {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0em;
+  }
+}
+
+.treningi article .week > div:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: group;
+}
+
+.treningi article .week > div:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: pon;
+}
+
+.treningi article .week > div:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: wt;
+}
+
+.treningi article .week > div:nth-child(4) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: sr;
+}
+
+.treningi article .week > div:nth-child(5) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: cz;
+}
+
+.treningi article .week > div:nth-child(6) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: pt;
+}
+
+.treningi article .week > div:nth-child(7) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+  grid-area: sob;
+}
+
+.treningi article .group {
+  text-align: center;
+}
+
+.treningi article #float {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: float;
+  background-color: #ededed;
+}
+
+@media (min-width: 500px) {
+  .treningi article #float {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0px;
+  }
+}
+
+.treningi article #city1,
+.treningi article #city2 {
+  background-color: #ededed;
+}
+
+@media (min-width: 500px) {
+  .treningi article #city1,
+  .treningi article #city2 {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0px;
+  }
+}
+
+.treningi article #city1 > a,
+.treningi article #city2 > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 170px;
+}
+
+.treningi article #city1 > a div,
+.treningi article #city2 > a div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60px;
+}
+
+.treningi article #city1 a > div:first-child,
+.treningi article #city2 a > div:first-child {
+  font-size: 24px;
   color: #bf9663;
 }
 
-#treningi article section .address {
-  padding-top: 0;
-  font-size: 18px;
+.treningi article #city1 a > div,
+.treningi article #city2 a > div {
+  border: none;
 }
 
-#treningi article section .time {
-  font-size: 18px;
-  height: 72px;
+.treningi article #data1,
+.treningi article #data2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "pon wt sr cz pt sob";
+  -ms-grid-columns: (160px)[7];
+      grid-template-columns: repeat(7, 160px);
 }
 
-#treningi article section .leader {
-  font-size: 18px;
+.treningi article #data1 > div:nth-child(1),
+.treningi article #data2 > div:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: pon;
 }
 
-#treningi article section .leader a {
-  color: #593b34;
+.treningi article #data1 > div:nth-child(2),
+.treningi article #data2 > div:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: wt;
 }
 
-#treningi article section .button {
-  margin: 8px 32px 0;
-  padding: 4px;
-  width: 130px;
-  background-color: #bf9663;
-  font-size: 28px;
-  text-align: center;
+.treningi article #data1 > div:nth-child(3),
+.treningi article #data2 > div:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: sr;
 }
 
-#treningi article section .button a {
-  width: 100%;
-  height: 100%;
-  color: #ededed;
+.treningi article #data1 > div:nth-child(4),
+.treningi article #data2 > div:nth-child(4) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: cz;
 }
 
-@media (max-width: 1600px) {
-  #treningi article {
-    max-width: 1064px;
+.treningi article #data1 > div:nth-child(5),
+.treningi article #data2 > div:nth-child(5) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: pt;
+}
+
+.treningi article #data1 > div:nth-child(6),
+.treningi article #data2 > div:nth-child(6) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+  grid-area: sob;
+}
+
+.treningi article #city1 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: city1;
+}
+
+.treningi article #city2 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: city2;
+}
+
+.treningi article #data1 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: data1;
+}
+
+.treningi article #data2 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: data2;
+}
+
+.treningi .info {
+  max-width: 700px;
+  overflow: auto;
+  padding-left: 64px;
+  padding-bottom: 32px;
+}
+
+@media (max-width: 1000px) {
+  .treningi .info {
+    padding-left: 32px;
   }
 }
 
-@media (max-width: 1064px) {
-  #treningi article {
-    max-width: 500px;
+@media (max-width: 700px) {
+  .treningi .info {
+    padding-left: 24px;
   }
 }
 
-@media (max-width: 500px) {
-  #treningi article {
-    grid-gap: 16px;
+@media (max-width: 600px) {
+  .treningi .info {
+    padding-left: 8px;
   }
-  #treningi article section {
-    min-height: 90px;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-  #treningi article section .place {
-    font-size: 24px;
-  }
-  #treningi article section .address {
-    font-size: 18px;
-    padding-top: 0;
-  }
-  #treningi article section .time {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    font-size: 18px;
-    padding-top: 0;
-  }
-  #treningi article section .leader {
-    margin-top: 16px;
-  }
-  #treningi article section .button {
-    margin: 4px 32px 32px;
-  }
+}
+
+.treningi .info div {
+  padding: 16px;
 }
 
 .ouuu main .mini.hidden {
@@ -844,12 +1044,21 @@ header > nav > div {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  overflow: hidden;
 }
 
 #gallery article > a img,
 #gallery article > div img {
   width: 100%;
   height: 100%;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+}
+
+#gallery article > a img:hover,
+#gallery article > div img:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 #gallery article > a div,
@@ -1465,15 +1674,79 @@ main#post .post__big section:last-child .desc {
 }
 
 .body-lbx main section:first-child {
+  position: relative;
   max-width: 90%;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  height: 100%;
   margin: auto;
   overflow: auto;
   scrollbar-color: #bad9c8 transparent;
   /* thumb and track color */
   scrollbar-width: thin;
+}
+
+.body-lbx main section:first-child img {
+  width: auto;
+  height: auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.body-lbx main section:first-child #navigation {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.body-lbx main section:first-child #navigation > div {
+  width: 50px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 3px;
+  background-color: #bad9c8;
+}
+
+.body-lbx main section:first-child #navigation > div div {
+  width: 7px;
+  height: 40px;
+  background-color: #ededed;
+}
+
+.body-lbx main section:first-child #navigation #plus {
+  position: relative;
+}
+
+.body-lbx main section:first-child #navigation #plus div {
+  position: absolute;
+  top: 5px;
+}
+
+.body-lbx main section:first-child #navigation #plus div:last-child {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.body-lbx main section:first-child #navigation #minus div {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 .body-lbx main section:last-child {
@@ -1518,73 +1791,139 @@ main#post .post__big section:last-child .desc {
           transform: rotate(-45deg);
 }
 
-/* BUFFOR CSS */
-.treningi {
-  overflow: hidden;
+#form {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.treningi .title {
-  padding: 80px 0px 80px 80px;
-  font-size: 48px;
-  color: #593b34;
-  max-width: 100%;
-}
-
-@media (max-width: 1000px) {
-  .treningi .title {
-    font-size: 40px;
-    padding: 48px 0px 48px 48px;
+@media (max-height: 800px) {
+  #form {
+    margin-top: 100px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
 }
 
-@media (max-width: 700px) {
-  .treningi .title {
-    font-size: 32px;
-    padding-left: 32px;
-  }
+#form .title {
+  width: 100%;
+  padding: 32px 0px 64px;
+  font-size: 32px;
+  text-align: center;
+}
+
+#form form {
+  width: 436px;
 }
 
 @media (max-width: 600px) {
-  .treningi .title {
-    font-size: 24px;
-    padding-left: 24px;
+  #form form {
+    width: 100%;
+    max-width: 300px;
   }
 }
 
-.treningi article {
+#form form div {
   position: relative;
-  max-width: 100%;
-  overflow: auto;
-  display: -ms-grid;
-  display: grid;
-      grid-template-areas: "float week" "city1 data1" "city2 data2";
-  margin: 64px;
-  font-size: 18px;
-}
-
-@media (max-width: 1000px) {
-  .treningi article {
-    margin: 32px;
-  }
-}
-
-@media (max-width: 700px) {
-  .treningi article {
-    margin: 24px;
-  }
+  max-width: 200px;
+  width: 100%;
+  height: 60px;
+  display: inline-block;
+  margin: 8px;
+  padding: 16px;
+  border: 3px solid #bad9c8;
+  border-radius: 8px;
 }
 
 @media (max-width: 600px) {
-  .treningi article {
-    margin: 8px;
+  #form form div {
+    width: 100%;
+    max-width: 300px;
+    margin: 8px 0px;
   }
 }
 
-.treningi article section {
-  padding: 16px;
+#form form div.field-error {
+  border-color: #772715;
 }
 
-.treningi article section#data1 div, .treningi article section#data2 div {
+#form form div input {
+  max-width: 130px;
+  border: none;
+  background-color: transparent;
+  color: #5a7559;
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  #form form div input {
+    max-width: 200px;
+    width: 100%;
+  }
+}
+
+#form form div input::-webkit-input-placeholder {
+  text-transform: capitalize;
+  color: #5a7559;
+}
+
+#form form div input:-ms-input-placeholder {
+  text-transform: capitalize;
+  color: #5a7559;
+}
+
+#form form div input::-ms-input-placeholder {
+  text-transform: capitalize;
+  color: #5a7559;
+}
+
+#form form div input::placeholder {
+  text-transform: capitalize;
+  color: #5a7559;
+}
+
+#form form div input.field-error {
+  color: #69291b;
+}
+
+#form form div img {
+  position: absolute;
+  right: 10px;
+}
+
+#form form #msg {
+  max-width: 420px;
+  width: 100%;
+}
+
+#form form #msg input {
+  max-width: 350px;
+}
+
+@media (max-width: 600px) {
+  #form form #msg input {
+    max-width: 200px;
+    width: 100%;
+  }
+}
+
+#form form #send {
+  position: relative;
+  width: 150px;
+  height: 55px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1594,133 +1933,19 @@ main#post .post__big section:last-child .desc {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  margin: 16px auto;
+  padding: 8px;
+  border: 3px solid #bad9c8;
+  border-radius: 8px;
+  background-color: transparent;
+  text-transform: capitalize;
 }
 
-.treningi article section#data1 div div, .treningi article section#data2 div div {
-  border-bottom: 1px solid #593b34;
-  text-align: center;
-  height: 60px;
+#form form #send:disabled {
+  border-color: #69291b;
 }
 
-.treningi article .week {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: week;
-  display: -ms-grid;
-  display: grid;
-      grid-template-areas: "group pon wt sr cz pt sob";
-  -ms-grid-columns: (160px)[7];
-      grid-template-columns: repeat(7, 160px);
-  text-align: center;
-}
-
-@media (min-width: 500px) {
-  .treningi article .week {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0em;
-  }
-}
-
-.treningi article .week > div:nth-child(1) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: group;
-}
-
-.treningi article .week > div:nth-child(2) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: pon;
-}
-
-.treningi article .week > div:nth-child(3) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: wt;
-}
-
-.treningi article .week > div:nth-child(4) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
-  grid-area: sr;
-}
-
-.treningi article .week > div:nth-child(5) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 4;
-  grid-area: cz;
-}
-
-.treningi article .week > div:nth-child(6) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 5;
-  grid-area: pt;
-}
-
-.treningi article .week > div:nth-child(7) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 6;
-  grid-area: sob;
-}
-
-.treningi article .group {
-  text-align: center;
-}
-
-.treningi article #float {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: float;
-  background-color: #ededed;
-}
-
-@media (min-width: 500px) {
-  .treningi article #float {
-    position: -webkit-sticky;
-    position: sticky;
-    left: 0px;
-  }
-}
-
-.treningi article #city1,
-.treningi article #city2 {
-  background-color: #ededed;
-}
-
-@media (min-width: 500px) {
-  .treningi article #city1,
-  .treningi article #city2 {
-    position: -webkit-sticky;
-    position: sticky;
-    left: 0px;
-  }
-}
-
-.treningi article #city1 > div,
-.treningi article #city2 > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 170px;
-}
-
-.treningi article #city1 > div div,
-.treningi article #city2 > div div {
+#form form #send span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1730,125 +1955,135 @@ main#post .post__big section:last-child .desc {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 60px;
+  color: #5a7559;
 }
 
-.treningi article #city1 div > div:first-child,
-.treningi article #city2 div > div:first-child {
-  font-size: 24px;
-  color: #bf9663;
+#form form #send img {
+  margin-left: 16px;
 }
 
-.treningi article #city1 div > div,
-.treningi article #city2 div > div {
+#form form #send:hover {
+  background-color: #bad9c8;
+}
+
+#form form #send:hover:disabled {
+  background-color: transparent;
+}
+
+/* BUFFOR CSS */
+#to-top {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  width: 100px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#to-top.hidden {
+  display: none;
+  opacity: 0;
+}
+
+#to-top div {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  border: 3px solid #bad9c8;
+  border-radius: 50px;
+}
+
+#to-top div span {
+  position: absolute;
+  top: 50%;
+  width: 3px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #bad9c8;
+}
+
+#to-top div span:first-child {
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+  left: 14px;
+}
+
+#to-top div span:last-child {
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+          transform: translateY(-50%) rotate(-45deg);
+  right: 14px;
+}
+
+#instructor > div:first-child {
+  margin: 32px auto;
+  font-size: 38px;
+  text-align: center;
+}
+
+#instructor > div:last-child {
+  max-width: 1370px;
+  width: 100%;
+  margin: 64px auto;
+}
+
+#instructor > div:last-child section {
+  max-width: 1200px;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#instructor > div:last-child section .photo {
+  max-width: 300px;
+  width: 90%;
+  height: auto;
+  background-color: #e3e3e3;
+}
+
+#instructor > div:last-child section .photo img {
+  width: 100%;
+  height: auto;
   border: none;
 }
 
-.treningi article #data1,
-.treningi article #data2 {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  display: -ms-grid;
-  display: grid;
-      grid-template-areas: "pon wt sr cz pt sob";
-  -ms-grid-columns: (160px)[7];
-      grid-template-columns: repeat(7, 160px);
+#instructor > div:last-child section .desc {
+  max-width: 500px;
+  width: 90%;
+  text-align: left;
 }
 
-.treningi article #data1 > div:nth-child(1),
-.treningi article #data2 > div:nth-child(1) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: pon;
-}
-
-.treningi article #data1 > div:nth-child(2),
-.treningi article #data2 > div:nth-child(2) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: wt;
-}
-
-.treningi article #data1 > div:nth-child(3),
-.treningi article #data2 > div:nth-child(3) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
-  grid-area: sr;
-}
-
-.treningi article #data1 > div:nth-child(4),
-.treningi article #data2 > div:nth-child(4) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 4;
-  grid-area: cz;
-}
-
-.treningi article #data1 > div:nth-child(5),
-.treningi article #data2 > div:nth-child(5) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 5;
-  grid-area: pt;
-}
-
-.treningi article #data1 > div:nth-child(6),
-.treningi article #data2 > div:nth-child(6) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 6;
-  grid-area: sob;
-}
-
-.treningi article #city1 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: city1;
-}
-
-.treningi article #city2 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  grid-area: city2;
-}
-
-.treningi article #data1 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  grid-area: data1;
-}
-
-.treningi article #data2 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 2;
-  grid-area: data2;
-}
-
-.treningi .info {
-  max-width: 700px;
-  overflow: auto;
-  padding-left: 64px;
-  padding-bottom: 32px;
-}
-
-@media (max-width: 1000px) {
-  .treningi .info {
-    padding-left: 32px;
+@media (max-width: 900px) {
+  #instructor > div:last-child > section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
-}
-
-@media (max-width: 700px) {
-  .treningi .info {
-    padding-left: 24px;
+  #instructor > div:last-child > section .desc {
+    padding-top: 10px;
   }
-}
-
-@media (max-width: 600px) {
-  .treningi .info {
-    padding-left: 8px;
-  }
-}
-
-.treningi .info div {
-  padding: 16px;
 }
 
 /* BUFFOR CSS */

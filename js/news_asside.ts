@@ -1,3 +1,4 @@
+/*
 var asside = document.getElementById("cal")! as HTMLDivElement;
 asside.addEventListener("click", function() {
     if (asside.style.transform == "0") {
@@ -113,3 +114,4 @@ class Calendar {
 }
 var a = new Calendar();
 a.createCal();
+*/

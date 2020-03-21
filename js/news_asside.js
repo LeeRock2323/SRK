@@ -1,13 +1,24 @@
 /*
-var asside = document.getElementById("cal");
+var asside = document.getElementById("cal")! as HTMLDivElement;
 asside.addEventListener("click", function() {
     if (asside.style.transform == "0") {
         asside.classList.toggle("expand");
     }
 });
-*/
-var Calendar = /** @class */ (function() {
-    function Calendar() {
+
+class Calendar {
+    today;
+    day;
+    month;
+    year;
+    daysInMonth;
+    startDay;
+    startDayName;
+
+    elmMonth;
+    elmYear;
+    elmDays;
+    constructor() {
         this.today = new Date();
         this.day = this.today.getDate();
         this.month = this.today.getMonth();
@@ -16,11 +27,13 @@ var Calendar = /** @class */ (function() {
         this.startDay = new Date(this.month + 1 + " 1 " + this.year);
         this.startDayName =
             this.startDay.getDay() == 0 ? 7 : this.startDay.getDay();
-        this.elmMonth = document.getElementById("month");
-        this.elmYear = document.getElementById("year");
-        this.elmDays = document.getElementById("days");
+
+        this.elmMonth = document.getElementById("month")! as HTMLLinkElement;
+        this.elmYear = document.getElementById("year")! as HTMLLinkElement;
+        this.elmDays = document.getElementById("days")! as HTMLDivElement;
     }
-    Calendar.prototype.countMonthDays = function(b) {
+
+    countMonthDays(b) {
         if (
             (b + (1 % 2) == 0 && b + 1 < 7) ||
             (b + (1 % 2) == 1 && b + 1 > 8)
@@ -30,8 +43,9 @@ var Calendar = /** @class */ (function() {
         } else {
             return 31;
         }
-    };
-    Calendar.prototype.getMonthName = function(month) {
+    }
+
+    getMonthName(month) {
         if (month == 0) {
             return "Styczeń";
         }
@@ -68,20 +82,19 @@ var Calendar = /** @class */ (function() {
         if (month == 11) {
             return "Grudzień";
         }
-    };
-    Calendar.prototype.createCal = function() {
-        /*
+    }
+
+    createCal() {
         this.elmYear.href = "#/" + this.year;
         this.elmYear.innerHTML = this.year;
         this.elmMonth.href =
             "#/" + this.getMonthName(this.month).toLocaleLowerCase();
         this.elmMonth.innerHTML = this.getMonthName(this.month);
-        
-        var a = "";
-        for (var i = 0; i < this.startDayName - 1; i++) {
+        let a = "";
+        for (let i = 0; i < this.startDayName - 1; i++) {
             a += '<div class="day disable">' + " " + "</div>";
         }
-        for (var i = 0; i < this.daysInMonth; i++) {
+        for (let i = 0; i < this.daysInMonth; i++) {
             a +=
                 '<a href="' +
                 "#/" +
@@ -97,32 +110,8 @@ var Calendar = /** @class */ (function() {
                 "</a>";
         }
         this.elmDays.innerHTML = a;
-        */
-    };
-    return Calendar;
-})();
+    }
+}
 var a = new Calendar();
 a.createCal();
-
-var macy = Macy({
-    container: "#macy1",
-    trueOrder: false,
-    waitForImages: false,
-    margin: 64,
-    columns: 3,
-    breakAt: {
-        1500: 2,
-        1000: 1
-    }
-});
-var macy2 = Macy({
-    container: "#macy2",
-    trueOrder: false,
-    waitForImages: false,
-    margin: 64,
-    columns: 3,
-    breakAt: {
-        1500: 2,
-        1000: 1
-    }
-});
+*/
