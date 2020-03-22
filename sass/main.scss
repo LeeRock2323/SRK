@@ -1,6 +1,6 @@
 @import "variables";
 @import "mixin";
-@import "global";
+@import "element";
 @import "header";
 @import "home";
 @import "o-nas";
@@ -11,105 +11,5 @@
 @import "lbx";
 @import "form";
 /* BUFFOR CSS */
-#to-top {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    z-index: 999;
-
-    width: 100px;
-    height: 100px;
-
-    @include df(center, center);
-
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-
-    &.hidden {
-        display: none;
-        opacity: 0;
-    }
-
-    div {
-        position: relative;
-
-        width: 50%;
-        height: 50%;
-
-        border: 3px solid $mint;
-        border-radius: 50px;
-
-        span {
-            position: absolute;
-            top: 50%;
-
-            width: 3px;
-            height: 20px;
-
-            border-radius: 10px;
-
-            background-color: $mint;
-
-            &:first-child {
-                transform: translateY(-50%) rotate(45deg);
-                left: 14px;
-            }
-            &:last-child {
-                transform: translateY(-50%) rotate(-45deg);
-                right: 14px;
-            }
-        }
-    }
-}
-#instructor {
-    > div:first-child {
-        margin: 32px auto;
-
-        font-size: 38px;
-        text-align: center;
-    }
-    > div:last-child {
-        max-width: 1370px;
-        width: 100%;
-        margin: 64px auto;
-
-        section {
-            max-width: 1200px;
-            width: 100%;
-
-            height: fit-content;
-
-            margin: auto;
-
-            @include df(space-around, center);
-            .photo {
-                max-width: 300px;
-                width: 90%;
-                height: auto;
-                background-color: #e3e3e3;
-                img {
-                    width: 100%;
-                    height: auto;
-                    border: none;
-                }
-            }
-            .desc {
-                max-width: 500px;
-                width: 90%;
-                text-align: left;
-            }
-        }
-    }
-    @media (max-width: 900px) {
-        > div:last-child {
-            > section {
-                flex-direction: column;
-                .desc {
-                    padding-top: 10px;
-                }
-            }
-        }
-    }
-}
 
 /* BUFFOR CSS */

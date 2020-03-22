@@ -1,7 +1,5 @@
-@charset "UTF-8";
 /* VARIABLES */
 /* VARIABLES */
-/* GLOBAL STYLE CSS */
 * {
   margin: 0;
   padding: 0;
@@ -81,8 +79,61 @@ a {
   display: none;
 }
 
-/*Szerokość */
-/* GLOBAL STYLE CSS */
+#to-top {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  width: 100px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#to-top.hidden {
+  display: none;
+  opacity: 0;
+}
+
+#to-top div {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  border: 3px solid #bad9c8;
+  border-radius: 50px;
+}
+
+#to-top div span {
+  position: absolute;
+  top: 50%;
+  width: 3px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #bad9c8;
+}
+
+#to-top div span:first-child {
+  -webkit-transform: translateY(-50%) rotate(45deg);
+          transform: translateY(-50%) rotate(45deg);
+  left: 14px;
+}
+
+#to-top div span:last-child {
+  -webkit-transform: translateY(-50%) rotate(-45deg);
+          transform: translateY(-50%) rotate(-45deg);
+  right: 14px;
+}
+
 /* HEADER CSS */
 header {
   position: fixed;
@@ -407,6 +458,65 @@ header > nav > div {
 
 #main-home .history > div .desc a {
   color: #593b34;
+}
+
+#main-home #instructor .title {
+  margin: 32px auto;
+  font-size: 38px;
+  text-align: center;
+}
+
+#main-home #instructor > div:last-child {
+  max-width: 1370px;
+  width: 100%;
+  margin: 64px auto;
+}
+
+#main-home #instructor > div:last-child section {
+  max-width: 1200px;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+#main-home #instructor > div:last-child section .photo {
+  max-width: 300px;
+  width: 90%;
+  height: auto;
+}
+
+#main-home #instructor > div:last-child section .photo img {
+  width: 100%;
+  height: auto;
+  border: none;
+}
+
+#main-home #instructor > div:last-child section .desc {
+  max-width: 500px;
+  width: 90%;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  #main-home #instructor > div:last-child > section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #main-home #instructor > div:last-child > section .desc {
+    padding-top: 10px;
+  }
 }
 
 #main-home .map {
@@ -1971,119 +2081,4 @@ main#post .post__big section:last-child .desc {
 }
 
 /* BUFFOR CSS */
-#to-top {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  z-index: 999;
-  width: 100px;
-  height: 100px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  opacity: 1;
-  -webkit-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
-}
-
-#to-top.hidden {
-  display: none;
-  opacity: 0;
-}
-
-#to-top div {
-  position: relative;
-  width: 50%;
-  height: 50%;
-  border: 3px solid #bad9c8;
-  border-radius: 50px;
-}
-
-#to-top div span {
-  position: absolute;
-  top: 50%;
-  width: 3px;
-  height: 20px;
-  border-radius: 10px;
-  background-color: #bad9c8;
-}
-
-#to-top div span:first-child {
-  -webkit-transform: translateY(-50%) rotate(45deg);
-          transform: translateY(-50%) rotate(45deg);
-  left: 14px;
-}
-
-#to-top div span:last-child {
-  -webkit-transform: translateY(-50%) rotate(-45deg);
-          transform: translateY(-50%) rotate(-45deg);
-  right: 14px;
-}
-
-#instructor > div:first-child {
-  margin: 32px auto;
-  font-size: 38px;
-  text-align: center;
-}
-
-#instructor > div:last-child {
-  max-width: 1370px;
-  width: 100%;
-  margin: 64px auto;
-}
-
-#instructor > div:last-child section {
-  max-width: 1200px;
-  width: 100%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#instructor > div:last-child section .photo {
-  max-width: 300px;
-  width: 90%;
-  height: auto;
-  background-color: #e3e3e3;
-}
-
-#instructor > div:last-child section .photo img {
-  width: 100%;
-  height: auto;
-  border: none;
-}
-
-#instructor > div:last-child section .desc {
-  max-width: 500px;
-  width: 90%;
-  text-align: left;
-}
-
-@media (max-width: 900px) {
-  #instructor > div:last-child > section {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  #instructor > div:last-child > section .desc {
-    padding-top: 10px;
-  }
-}
-
 /* BUFFOR CSS */

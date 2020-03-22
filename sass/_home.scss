@@ -128,7 +128,57 @@
     }
 
     //intructor - start
+    #instructor {
+        .title {
+            margin: 32px auto;
+            font-size: 38px;
+            text-align: center;
+        }
+        > div:last-child {
+            max-width: 1370px;
+            width: 100%;
+            margin: 64px auto;
 
+            section {
+                max-width: 1200px;
+                width: 100%;
+                height: fit-content;
+
+                @include df(space-around, center);
+
+                margin: auto;
+
+                .photo {
+                    max-width: 300px;
+                    width: 90%;
+                    height: auto;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                        border: none;
+                    }
+                }
+
+                .desc {
+                    max-width: 500px;
+                    width: 90%;
+                    text-align: left;
+                }
+            }
+        }
+        @media (max-width: 900px) {
+            > div:last-child {
+                > section {
+                    flex-direction: column;
+
+                    .desc {
+                        padding-top: 10px;
+                    }
+                }
+            }
+        }
+    }
     //instructor - end
     .map {
         margin-top: 120px;
